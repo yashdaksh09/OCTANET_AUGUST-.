@@ -98,7 +98,7 @@ nav ul li a:hover {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: 0.3s;
     position: relative;
     z-index: 1;
 }
@@ -154,7 +154,7 @@ nav ul li a:hover {
 }
 
 .card{
-    background-color: #f4f4f4;
+    background-image: linear-gradient(pink, lightblue);
     padding: 20px;
     border-radius: 5px;
     margin: 10px;
