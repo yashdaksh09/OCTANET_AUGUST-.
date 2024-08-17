@@ -1,37 +1,31 @@
-// Select elements
-const todoInput = document.getElementById('todo-input');
-const addTodoButton = document.getElementById('add-todo');
-const todoList = document.getElementById('todo-list');
-
-addTodoButton.addEventListener('click', addTodo);
-
+// Select DOM elements
+const todoInput = document.querySelector('.todo_value');
+const addBtn = document.querySelector('.add-btn');
+const todoList = document.querySelector('.todo-list');
 
 function addTodo() {
-
     const todoText = todoInput.value.trim();
 
-    if (todoText !== '') {
-       
-        const li = document.createElement('li');
+    if (todoText !== "") {
+        const newTodo = document.createElement('li');
+        newTodo.textContent = todoText;
 
-    
-        li.textContent = todoText;
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
 
-       
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-
-        li.appendChild(deleteButton);
-
-       
-        todoList.appendChild(li);
-
-       
+        newTodo.appendChild(removeBtn);
+        todoList.appendChild(newTodo);
         todoInput.value = '';
-
-        // Add event listener to the delete button
-        deleteButton.addEventListener('click', () => {
-            todoList.removeChild(li);
+        
+        removeBtn.addEventListener('click', () => {
+            todoList.removeChild(newTodo);
         });
     }
 }
+addBtn.addEventListener('click', addTodo);
+
+todoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addTodo();
+    }
+});
